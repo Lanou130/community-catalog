@@ -8,7 +8,7 @@ catalog:
   questions:
     - variable: NEXTCLOUD_PORT
       label: Port
-      default: 8082
+      default: 80
       required: true
       type: int
 
