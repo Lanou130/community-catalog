@@ -1,0 +1,24 @@
+version: '3'
+
+catalog:
+
+  name: nextcloud
+  version: 0.0.1-NoDb
+  description: Nextcloud - Enterprise File Sync and Share
+  questions:
+    - variable: NEXTCLOUD_PORT
+      label: Port
+      default: 8082
+      required: true
+      type: int
+
+services:
+
+  nextcloud:
+    scale: 1
+    start_on_create: true
+
+  nextcloud-data:
+    scale: 1
+    start_on_create: true
+

@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+
+  nextcloud:
+    image: nextcloud:12-apache
+    volumes_from:
+      - nextcloud-data
+    ports:
+      - ${NEXTCLOUD_PORT}:8082
+    labels:
+      io.rancher.sidekicks: nextcloud-data
+      io.rancher.container.hostname_override: container_name
+
+  nextcloud-data:
+    image: nextcloud:12-apache
+    entrypoint:
+      - /bin/true
+    volumes:
+      - /var/www/html
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+
